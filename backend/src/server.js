@@ -1,3 +1,4 @@
+require('dotenv').config();
 const express = require('express');
 const routes = require('../src/routes');
 const mongoose = require('mongoose');
@@ -6,7 +7,7 @@ const cors = require('cors');
 
 const app = express();
 
-mongoose.connect('mongodb+srv://showroomcasas:bDHe1lxMHme8hd4Q@showroomcasas-drpz2.mongodb.net/showroomcasasapp', {
+mongoose.connect(process.env.MONGO_URL, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
 })
