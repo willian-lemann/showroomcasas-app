@@ -4,14 +4,8 @@ const cloudinary = require('../services/cloudinary');
 
 exports.index = async (request, response) => {
 
-    // const posts = await Post.find();
-    // return response.json(posts);
-    cloudinary.api.resources(
-        { type: 'upload', 
-          prefix: 'Assets' }, 
-        function(error, result) {console.log(result, error); });
-
-
+    const posts = await Post.find();
+    return response.json(posts); 
 };
 
 
