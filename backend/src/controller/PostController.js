@@ -1,18 +1,12 @@
-const Post = require('../models/Post');
+const PostService = require('../services/PostService');
 
 module.exports = {
 
-    async store(req, res) {
+    async index(request, response) {
+        await PostService.index(request, response);
+    },
 
-        const { originalname: name, size, filename: key } = req.file;
-
-        const post = await Post.create({
-            name,
-            size,
-            key,
-            url: '',
-        });
-        return res.json(post);
-    }
-
-}
+    async store(request, response) {
+        await PostService.store(request, response);
+    },
+};
